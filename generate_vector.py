@@ -1,6 +1,7 @@
 #! /usr/bin/python
 #-*- coding:utf-8 -*
 
+import sys
 import re
 import requests
 import json
@@ -46,28 +47,26 @@ def generate_vectors(url, nickname, password):
 
     wordlist=[]
     for w,bc in apcount.items():
-      frac=float(bc)/len(talks)
+      frac = float(bc)/len(talks)
       if frac>0.1 and frac<0.5:
         wordlist.append(w)
 
-    out=open('data.txt','w')
+    out = open('data.txt','w')
     out.write('id')
-    for word in wordlist: out.write('\t%s' % word)
+    for word in wordlist:
+        out.write('\t%s' % word)
     out.write('\n')
-    for blog, wc in wordcounts.items():
-      print(blog)
-      out.write(blog)
+    for talk_id, wc in wordcounts.items():
+      out.write(talk_id)
       for word in wordlist:
-        if word in wc: out.write('\t%d' % wc[word])
-        else: out.write('\t0')
+        if word in wc:
+            out.write('\t%d' % wc[word])
+        else:
+            out.write('\t0')
       out.write('\n')
-
-
-
-
 
 
 
 if __name__ == "__main__":
     generate_vectors("http://european-data-forum.list.lu/api/v1.0/talks.json",
-                        "recommender", "recommenderPassword")
+                        sys.argv[1], sys.argv[2])
