@@ -32,6 +32,23 @@ A simple recommender using K-Means clustering with the distance of Pearson.
     Cluster 9:
     ['55e450a0c20c4956ee6f2c46']
 
+*generate_vector.py* retrieves informations about talks through the API in order
+to generate vectors based on different properties of a talk (abstract, resume
+and title). The vectors will be stored in a simple text file.
+
+The first argument is the nickname of the recommender. The second argument is
+the password. Only use a user with the *recommender* role!
+
+*process.py* launches the clustering process.
+
+
+# TODO
+
+* store the final result to the server side with the PATCH method;
+* add a client for ZeroMQ;
+* make it also work with cron;
+* better separation of the clustering and vectorization phases.
+
 
 # License
 
