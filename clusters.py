@@ -2,38 +2,8 @@
 #-*- coding:utf-8 -*
 
 import random
-from math import sqrt
 
-#
-# Distances
-#
-def pearson(v1, v2):
-    sum1 = sum(v1)
-    sum2 = sum(v2)
-
-    sum1Sq = sum([pow(v, 2) for v in v1])
-    sum2Sq = sum([pow(v, 2) for v in v2])
-
-    pSum = sum([v1[i]*v2[i] for i in range(len(v1))])
-
-    # Calculate r (Pearson score)
-    num = pSum - (sum1*sum2/len(v1))
-    den = sqrt((sum1Sq-pow(sum1, 2)/len(v1)) * (sum2Sq-pow(sum2, 2)/len(v1)))
-
-    if den == 0:
-        return 0
-    return 1.0-num/den
-
-def tanamoto(v1,v2):
-  c1,c2,shr=0,0,0
-
-  for i in range(len(v1)):
-    if v1[i]!=0: c1+=1 # in v1
-    if v2[i]!=0: c2+=1 # in v2
-    if v1[i]!=0 and v2[i]!=0: shr+=1 # in both
-
-  return 1.0-(float(shr)/(c1+c2-shr))
-
+import distance
 
 def readfile(filename):
   lines = None
@@ -53,7 +23,7 @@ def readfile(filename):
   return rownames,colnames,data
 
 
-def kcluster(rows, distance=pearson,k=4):
+def kcluster(rows, distance=distance.pearson,k=4):
   # Determine the minimum and maximum values for each point
   ranges=[(min([row[i] for row in rows]),max([row[i] for row in rows]))
   for i in range(len(rows[0]))]
