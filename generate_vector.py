@@ -20,7 +20,10 @@ def getwords(text):
     # Convert to lowercase
     return [word.lower() for word in words if word!='']
 
-def remove_stropwords(words):
+def remove_stopwords(words):
+    """
+    Remove the stop words from a list of words.
+    """
     return [w for w in words if w not in STOP_WORDS]
 
 def getwordcounts(talk):
@@ -28,7 +31,7 @@ def getwordcounts(talk):
     wc = {}
     # Extract a list of words
     words = getwords(talk["resume"] + ' ' + talk["abstract"])
-    words = remove_stropwords(words)
+    words = remove_stopwords(words)
     for word in words:
         wc.setdefault(word, 0)
         wc[word] += 1
