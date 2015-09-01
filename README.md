@@ -3,10 +3,12 @@ Web
 
 # Presentation
 
-A simple recommender using K-Means clustering with the distance of Pearson.
+A recommender using K-Means clustering with the distance of Pearson.
 
 # Usage
 
+    $ ./generate_vector.py
+    Usage: generate_vector.py nickname password [service_url]
     $ ./generate_vector.py recommender passwordOfTheRecommender
     $ ./process.py
     Iteration 0
@@ -51,6 +53,10 @@ the password. Only use a user with the *recommender* role!
 
 
 # License
+
+This code is using samples from the book
+[Programming Collective Intelligence](https://www.librarything.com/work/3151375)
+under MIT license.
 
 # Contact
 
