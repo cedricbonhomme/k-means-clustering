@@ -41,7 +41,8 @@ and title). The vectors will be stored in a simple text file.
 The first argument is the nickname of the recommender. The second argument is
 the password. Only use a user with the *recommender* role!
 
-*process.py* launches the clustering process.
+*process.py* launches the clustering process. Clusters are set of id of talks
+or stands.
 
 
 # TODO
