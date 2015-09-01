@@ -23,7 +23,7 @@ def readfile(filename):
   return rownames,colnames,data
 
 
-def kcluster(rows, distance=distance.pearson,k=4):
+def kcluster(rows, distance=distance.pearson, k=4):
   # Determine the minimum and maximum values for each point
   ranges=[(min([row[i] for row in rows]),max([row[i] for row in rows]))
   for i in range(len(rows[0]))]

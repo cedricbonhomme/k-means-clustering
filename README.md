@@ -7,41 +7,37 @@ A recommender using K-Means clustering with the distance of Pearson.
 
 # Usage
 
-    $ ./generate_vector.py
+    $ ./generate_vectors.py --help
     Usage: generate_vector.py nickname password [service_url]
-    $ ./generate_vector.py recommender passwordOfTheRecommender
-    $ ./generate_clusters.py
-    $ ./list_clusters.py 
+    $ ./generate_vectors.py recommender passwordOfTheRecommender
+    vectors saved
+    $
+    $ ./generate_clusters.py --help
+    Usage: generate_clusters.py nb_cluster
+    $ ./generate_clusters.py 4
+    Iteration 0
+    Iteration 1
+    clusters stored
+    $ ./list_clusters.py
     Cluster 0:
-    ['55e450a0c20c4956ee6f2c49', '55e450a0c20c4956ee6f2c48']
+    ['55e450a0c20c4956ee6f2c49', '55e450a0c20c4956ee6f2c4c', '55e450a0c20c4956ee6f2c4a']
     Cluster 1:
-    ['55e450a0c20c4956ee6f2c47', '55e450a0c20c4956ee6f2c4b']
+    ['55e450a0c20c4956ee6f2c47', '55e450a0c20c4956ee6f2c45', '55e450a0c20c4956ee6f2c4d']
     Cluster 2:
-    []
+    ['55e450a0c20c4956ee6f2c48', '55e450a0c20c4956ee6f2c4b']
     Cluster 3:
     ['55e450a0c20c4956ee6f2c46']
-    Cluster 4:
-    ['55e450a0c20c4956ee6f2c45']
-    Cluster 5:
-    []
-    Cluster 6:
-    []
-    Cluster 7:
-    []
-    Cluster 8:
-    ['55e450a0c20c4956ee6f2c4d']
-    Cluster 9:
-    ['55e450a0c20c4956ee6f2c4a', '55e450a0c20c4956ee6f2c4c']
 
-*generate_vector.py* retrieves informations about talks through the API in order
+
+*generate_vectors.py* retrieves informations about talks through the API in order
 to generate vectors based on different properties of a talk (abstract, resume
 and title). The vectors will be stored in a simple text file.
 
 The first argument is the nickname of the recommender. The second argument is
 the password. Only use a user with the *recommender* role!
 
-*process.py* launches the clustering process. Clusters are set of id of talks
-or stands.
+*generate_clusters.py* launches the clustering process. Clusters are set of id
+of talks or stands.
 
 
 # TODO
