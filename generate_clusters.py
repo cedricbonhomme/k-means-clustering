@@ -12,7 +12,7 @@ def create_clusters(k=10):
 
     with open("clusters", 'wb') as f:
         pickle.dump(kclust, f)
-        print("clusters stored")
+        print("clusters saved")
 
 def usage(code=1):
     print("Usage: generate_clusters.py nb_cluster")
