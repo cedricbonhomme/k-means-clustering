@@ -30,7 +30,7 @@ def get_word_counts(talk):
     # Parse the feed
     wc = {}
     # Extract a list of words
-    words = getwords(talk["resume"] + ' ' + talk["abstract"])
+    words = getwords(talk["title"] + talk["resume"] + ' ' + talk["abstract"])
     words = remove_stopwords(words)
     for word in words:
         wc.setdefault(word, 0)
