@@ -8,7 +8,7 @@ A recommender using K-Means clustering with the distance of Pearson.
 # Usage
 
     $ ./generate_vectors.py --help
-    Usage: generate_vector.py nickname password [service_url]
+    Usage: generate_vectors.py nickname password [service_url]
     $ ./generate_vectors.py recommender passwordOfTheRecommender
     vectors saved
     $

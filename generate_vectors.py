@@ -83,7 +83,7 @@ def usage(code=1):
     """
     Display usage information.
     """
-    print("Usage: generate_vector.py nickname password [service_url]")
+    print("Usage: generate_vectors.py nickname password [service_url]")
     return code
 
 if __name__ == "__main__":
