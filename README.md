@@ -18,6 +18,7 @@ A recommender using K-Means clustering with the distance of Pearson.
     Iteration 0
     Iteration 1
     clusters saved
+    $
     $ ./list_clusters.py
     Cluster 0:
     ['55e450a0c20c4956ee6f2c49', '55e450a0c20c4956ee6f2c4c', '55e450a0c20c4956ee6f2c4a']
