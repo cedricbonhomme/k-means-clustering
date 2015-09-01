@@ -6,6 +6,13 @@ import re
 import requests
 import json
 
+# load the stopwords
+data=None
+with open("stopwords.txt", 'r') as f:
+    data = f.read()
+STOP_WORDS = data.split(";")
+
+
 def getwords(text):
     # Split words by all non-alpha characters
     words = re.compile(r'[^A-Z^a-z]+').split(text)
@@ -14,11 +21,7 @@ def getwords(text):
     return [word.lower() for word in words if word!='']
 
 def remove_stropwords(words):
-    data=None
-    with open("stopwords.txt", 'r') as f:
-        data = f.read()
-    stop_words = data.split(";")
-    return [w for w in words if w not in stop_words]
+    return [w for w in words if w not in STOP_WORDS]
 
 def getwordcounts(talk):
     # Parse the feed
