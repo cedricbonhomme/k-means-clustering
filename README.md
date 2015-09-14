@@ -28,6 +28,11 @@ A recommender using K-Means clustering with the distance of Pearson.
     ['55e450a0c20c4956ee6f2c48', '55e450a0c20c4956ee6f2c4b']
     Cluster 3:
     ['55e450a0c20c4956ee6f2c46']
+    $
+    $ ./recommend.py 55f6791ac20c4930e106f2f6
+    ['55f67917c20c4930de8655ff', '55f67916c20c4930de8655ea', '55f67917c20c4930de865601']
+    $ # the user has previously added  the talk 55f67916c20c4930de8655ea in its program
+
 
 
 *generate_vectors.py* retrieves informations about talks through the API in order

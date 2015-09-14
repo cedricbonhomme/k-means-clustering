@@ -30,7 +30,8 @@ def get_word_counts(talk):
     # Parse the feed
     wc = {}
     # Extract a list of words
-    words = getwords(talk["title"] + talk["resume"] + ' ' + talk["abstract"])
+    words = getwords(talk["title"] + talk["resume"] + ' ' + talk["abstract"] +
+                        ' ' + talk["session"])
     words = remove_stopwords(words)
     for word in words:
         wc.setdefault(word, 0)
@@ -97,5 +98,5 @@ if __name__ == "__main__":
     try:
         service_url = sys.argv[3]
     except:
-        service_url = "http://european-data-forum.list.lu/api/v1.0/talks.json"
+        service_url = "https://european-data-forum.list.lu/api/v1.0/talks.json"
     generate_vectors(service_url, nickname, password)
