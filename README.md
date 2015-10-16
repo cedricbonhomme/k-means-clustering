@@ -21,17 +21,31 @@ and title). The vectors will be stored in a simple text file.
 The first argument is the nickname of the recommender. The second argument is
 the password. Only use a user with the *recommender* role!
 
+The size of the window will have an impact on the size of the vectors and so
+important impact on the boundaries between the clusters.
+
 ## Generation of the clusters
 
     $ ./generate_clusters.py --help
     Usage: generate_clusters.py nb_cluster
-    $ ./generate_clusters.py 4
+    $ ./generate_clusters.py 15
     Iteration 0
     Iteration 1
+    Iteration 2
+    Iteration 3
     clusters saved
 
 *generate_clusters.py* launches the clustering process. Clusters are set of id
 of talks or stands.
+
+More clusters generated means more iterations for less recommendations
+and better recommendations.
+
+Less clusters generated means less iterations for more recommendations
+and less relevant recommendations.
+
+For more clusters and keep a good quality we need to have more and bigger
+vectors.
 
 ## List the generated clusters
 
@@ -44,6 +58,14 @@ of talks or stands.
     ['55e450a0c20c4956ee6f2c48', '55e450a0c20c4956ee6f2c4b']
     Cluster 3:
     ['55e450a0c20c4956ee6f2c46']
+    .
+    .
+    .
+    <snip>
+    .
+    .
+    .
+
 
 ## Recommend some talks for a user
 
