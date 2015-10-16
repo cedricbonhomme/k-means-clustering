@@ -18,8 +18,8 @@ A recommender using K-Means clustering with the distance of Pearson.
 to generate vectors based on different properties of a talk (abstract, resume
 and title). The vectors will be stored in a simple text file.
 
-The size of the window will have an impact on the size of the vectors and so
-important impact on the boundaries between the clusters.
+The size of the window will have an impact on the size of the vectors and
+consequently an important impact on the boundaries between the clusters.
 
 ## Generation of the clusters
 
