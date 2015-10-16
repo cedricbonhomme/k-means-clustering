@@ -1,6 +1,22 @@
 #! /usr/bin/python
 #-*- coding:utf-8 -*
 
+# ***** BEGIN LICENSE BLOCK *****
+# This file is part of Adaptive Conference Companion.
+# Copyright (c) 2015 Luxembourg Institute of Science and Technology.
+# All rights reserved.
+#
+#
+#
+# ***** END LICENSE BLOCK *****
+
+__author__ = "Cedric Bonhomme"
+__version__ = "$Revision: 0.2 $"
+__date__ = "$Date: 2015/08/31$"
+__revision__ = "$Date: 2015/10/16 $"
+__copyright__ = "Copyright (c) Luxembourg Institute of Science and Technology"
+__license__ = ""
+
 import sys
 import re
 import requests
@@ -38,16 +54,16 @@ def get_word_counts(talk):
         wc[word] += 1
     return talk["id"] , wc
 
-def retrieve_data(url, nickname, password):
-    r = requests.get(url, auth=(nickname, password))
+def retrieve_data(url):
+    r = requests.get(url)
     if r.status_code != 200:
         print("Problem when connecting to {}: {}".format(url, r.reason))
         sys.exit(1)
     talks = json.loads(r.text)
     return talks
 
-def generate_vectors(url, nickname, password):
-    talks = retrieve_data(url, nickname, password)
+def generate_vectors(url, window_min, window_max):
+    talks = retrieve_data(url)
 
     apcount={}
     wordcounts={}
@@ -56,16 +72,16 @@ def generate_vectors(url, nickname, password):
         wordcounts[talk_id] = wc
         for word, count in wc.items():
           apcount.setdefault(word,0)
-          if count>1:
+          if count > 1:
             apcount[word]+=1
 
     wordlist=[]
     for w,bc in apcount.items():
         frac = float(bc)/len(talks)
-        if frac>0.1 and frac<0.5:
+        if frac > window_min and frac < window_max:
             wordlist.append(w)
 
-    out = open('data.txt','w')
+    out = open('vectors.txt','w')
     out.write('id')
     for word in wordlist:
         out.write('\t%s' % word)
@@ -84,7 +100,7 @@ def usage(code=1):
     """
     Display usage information.
     """
-    print("Usage: generate_vectors.py nickname password [service_url]")
+    print("Usage: generate_vectors.py [window_min] [window_max] [service_url]")
     return code
 
 if __name__ == "__main__":
@@ -92,11 +108,13 @@ if __name__ == "__main__":
     try:
         if sys.argv[1] == "--help":
             sys.exit(usage(0))
-        nickname, password = sys.argv[1], sys.argv[2]
+        window_min = sys.argv[1]
+        window_max = sys.argv[2]
     except Exception as e:
-        sys.exit(usage())
+        window_min = 0.02
+        window_max = 0.5
     try:
         service_url = sys.argv[3]
-    except:
+    except Exception as e:
         service_url = "https://european-data-forum.list.lu/api/v1.0/talks.json"
-    generate_vectors(service_url, nickname, password)
+    generate_vectors(service_url, window_min, window_max)

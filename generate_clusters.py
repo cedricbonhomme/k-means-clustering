@@ -1,13 +1,29 @@
 #! /usr/bin/python
 #-*- coding:utf-8 -*
 
+# ***** BEGIN LICENSE BLOCK *****
+# This file is part of Adaptive Conference Companion.
+# Copyright (c) 2015 Luxembourg Institute of Science and Technology.
+# All rights reserved.
+#
+#
+#
+# ***** END LICENSE BLOCK *****
+
+__author__ = "Cedric Bonhomme"
+__version__ = "$Revision: 0.2 $"
+__date__ = "$Date: 2015/08/31$"
+__revision__ = "$Date: 2015/10/16 $"
+__copyright__ = "Copyright (c) Luxembourg Institute of Science and Technology"
+__license__ = ""
+
 import sys
 import pickle
 
 import clusters
 
 def create_clusters(k=10):
-    rownames, colnames, data = clusters.readfile("data.txt")
+    rownames, colnames, data = clusters.readfile("vectors.txt")
     kclust = clusters.kcluster(rows=data, k=k)
 
     with open("clusters", 'wb') as f:
