@@ -73,14 +73,15 @@ The user has previously added  the talk *55f67916c20c4930de8655ea* in its
 program. Based on the clustering done previously we recommend to this
 attendee 2 other talks.
 
+The message *'Profile updated'* means that the profile has been updated
+
 The second argument is the nickname of the recommender. The third argument is
 the password. Only use a user with the *recommender* role!
 
 # TODO
 
 * add a client for ZeroMQ;
-* make it also work with cron;
-* add a way to let the user choose another distance calculation than Pearson.
+* make it also work with cron.
 
 
 # License
