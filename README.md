@@ -36,14 +36,14 @@ important impact on the boundaries between the clusters.
     clusters saved
 
 *generate_clusters.py* launches the clustering process. Clusters are set of id
-of talks or stands.
+of talks or booths.
 
 * More clusters generated means more iterations for less recommendations
 and better recommendations.
 * Less clusters generated means less iterations for more recommendations
 and less relevant recommendations.
 
-For more clusters and keep a good quality we need to have more and bigger
+For more clusters and to keep a good quality we need to have more and bigger
 vectors.
 
 ## List the generated clusters
@@ -80,6 +80,7 @@ attendee 2 other talks.
 
 * add a client for ZeroMQ;
 * make it also work with cron;
+* add a way to let the user choose another distance calculation than Pearson.
 
 
 # License
