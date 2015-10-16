@@ -18,9 +18,6 @@ A recommender using K-Means clustering with the distance of Pearson.
 to generate vectors based on different properties of a talk (abstract, resume
 and title). The vectors will be stored in a simple text file.
 
-The first argument is the nickname of the recommender. The second argument is
-the password. Only use a user with the *recommender* role!
-
 The size of the window will have an impact on the size of the vectors and so
 important impact on the boundaries between the clusters.
 
@@ -75,6 +72,9 @@ vectors.
 The user has previously added  the talk *55f67916c20c4930de8655ea* in its
 program. Based on the clustering done previously we recommend to this
 attendee 2 other talks.
+
+The second argument is the nickname of the recommender. The third argument is
+the password. Only use a user with the *recommender* role!
 
 # TODO
 
