@@ -38,10 +38,9 @@ important impact on the boundaries between the clusters.
 *generate_clusters.py* launches the clustering process. Clusters are set of id
 of talks or stands.
 
-More clusters generated means more iterations for less recommendations
+* More clusters generated means more iterations for less recommendations
 and better recommendations.
-
-Less clusters generated means less iterations for more recommendations
+* Less clusters generated means less iterations for more recommendations
 and less relevant recommendations.
 
 For more clusters and keep a good quality we need to have more and bigger
