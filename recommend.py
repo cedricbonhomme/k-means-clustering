@@ -11,9 +11,9 @@
 # ***** END LICENSE BLOCK *****
 
 __author__ = "Cedric Bonhomme"
-__version__ = "$Revision: 0.2 $"
+__version__ = "$Revision: 0.3 $"
 __date__ = "$Date: 2015/08/31$"
-__revision__ = "$Date: 2015/10/16 $"
+__revision__ = "$Date: 2015/10/26 $"
 __copyright__ = "Copyright (c) Luxembourg Institute of Science and Technology"
 __license__ = ""
 
@@ -25,14 +25,14 @@ import pickle
 import clusters
 import list_clusters
 
-def recommend(user_id, recommender_nickname, recommender_password):
+def recommend(user_id, recommender_nickname, recommender_password,
+                service_url):
     """
     Select talks/booths/poster to recommend from clusters.
     """
     recommended_talks = []
-    request = requests.get(
-        "https://european-data-forum.list.lu/api/v1.0/profiles.json/" + user_id,
-        auth=(recommender_nickname, recommender_password))
+    request = requests.get(service_url + "/api/v1.0/profiles.json/" + user_id,
+                            auth=(recommender_nickname, recommender_password))
     if request.status_code == 200:
         program = json.loads(request.text)["program"]
         progam_id = [talk["id"] for talk in program]
@@ -48,12 +48,7 @@ def recommend(user_id, recommender_nickname, recommender_password):
     else:
         print(request.reason)
 
-    if len(recommended_talks) != 0:
-        print("Recommended talks:")
-        print(recommended_talks)
-        update_profile_with_recommendations(user_id, recommender_nickname,
-                                                recommender_password,
-                                                recommended_talks)
+    return recommended_talks
 
 def update_profile_with_recommendations(user_id, recommender_nickname,
                                         recommender_password,
@@ -67,10 +62,9 @@ def update_profile_with_recommendations(user_id, recommender_nickname,
     for talk_id in recommended_talks:
         data.append({"id":talk_id})
     payload = {"op":"add", "path":"/recommended_talks", "value":data}
-    r = requests.patch(
-        "https://european-data-forum.list.lu/api/v1.0/profiles.json/" + user_id,
-        auth=(recommender_nickname, recommender_password),
-        headers=headers, data=json.dumps(payload))
+    r = requests.patch(service_url + "/api/v1.0/profiles.json/" + user_id,
+                        auth=(recommender_nickname, recommender_password),
+                        headers=headers, data=json.dumps(payload))
     if r.status_code == 201:
         print("Profile updated.")
     else:
@@ -83,4 +77,20 @@ if __name__ == "__main__":
     user_id = sys.argv[1]
     recommender_nickname = sys.argv[2]
     recommender_password = sys.argv[3]
-    recommend(user_id, recommender_nickname, recommender_password)
+    try:
+        service_url = sys.argv[4]
+    except Exception as e:
+        service_url = "https://european-data-forum.list.lu"
+
+    recommended_talks = recommend(user_id, recommender_nickname,
+                                    recommender_password, service_url)
+
+    if len(recommended_talks) != 0:
+        print("Talks to recommend:")
+        print(recommended_talks)
+        print("Updating profile...")
+        update_profile_with_recommendations(user_id, recommender_nickname,
+                                                recommender_password,
+                                                recommended_talks)
+    else:
+        print("Nothing to recommend.")
