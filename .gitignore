@@ -15,5 +15,5 @@ eproject.cfg
 # Log files:
 *.log
 
-data.txt
+vectors.txt
 clusters
