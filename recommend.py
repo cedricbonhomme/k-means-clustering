@@ -48,9 +48,8 @@ def recommend(user_id, recommender_nickname, recommender_password):
     else:
         print(request.reason)
 
-    print(recommended_talks)
-
     if len(recommended_talks) != 0:
+        print(recommended_talks)
         update_profile_with_recommendations(user_id, recommender_nickname,
                                                 recommender_password,
                                                 recommended_talks)
