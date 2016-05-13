@@ -36,7 +36,7 @@ def pearson(v1, v2):
         return 0
     return 1.0-num/den
 
-def tanamoto(v1,v2):
+def tanimoto(v1,v2):
   c1,c2,shr=0,0,0
 
   for i in range(len(v1)):
