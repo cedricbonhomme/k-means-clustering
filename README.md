@@ -80,4 +80,4 @@ the password. Only use a user with the *recommender* role!
 
 # Contact
 
-[Cédric Bonhomme](https://www.cedricbonhomme.org).
+[Cédric Bonhomme](https://www.cedricbonhomme.org)
