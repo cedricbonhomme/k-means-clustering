@@ -71,7 +71,7 @@ if __name__ == "__main__":
     try:
         service_url = sys.argv[4]
     except Exception as e:
-        service_url = "https://european-data-forum.list.lu"
+        service_url = ""
 
     recommended_talks = recommend(user_id, recommender_nickname,
                                     recommender_password, service_url)

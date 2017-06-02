@@ -1,6 +1,3 @@
-Web
-===
-
 # Presentation
 
 A recommender using K-Means clustering with the distance of Pearson.
