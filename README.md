@@ -14,9 +14,9 @@ A recommender using K-Means clustering with the distance of Pearson.
     $ ./generate_vectors.py
     vectors saved
 
-*generate_vectors.py* retrieves informations about talks through the API in order
-to generate vectors based on different properties of a talk (abstract, resume
-and title). The vectors will be stored in a simple text file.
+*generate_vectors.py* retrieves informations about objects to recommend through
+the API in order to generate vectors based on different properties of an object
+(abstract, resume and title). The vectors will be stored in a simple text file.
 
 The size of the window will have an impact on the size of the vectors and
 consequently an important impact on the boundaries between the clusters.
@@ -32,8 +32,7 @@ consequently an important impact on the boundaries between the clusters.
     Iteration 3
     clusters saved
 
-*generate_clusters.py* launches the clustering process. Clusters are set of id
-of talks or booths.
+*generate_clusters.py* launches the clustering process. Clusters are set of id.
 
 * More clusters generated means more iterations for less recommendations
 and better recommendations.
@@ -63,15 +62,15 @@ vectors.
     .
 
 
-## Recommend some talks for a user
+## Recommend something for a user
 
-    $ ./recommend.py 55f6791ac20c4930e106f2f6 recommender_nickname recommender_nickname [service_url]
+    $ ./recommend.py 55f6791ac20c4930e106f2f6 recommender_nickname recommender_password [service_url]
     ['55f67917c20c4930de8655ff', '55f67916c20c4930de8655ea', '55f67917c20c4930de865601']
     Profile updated.
 
-The user has previously added  the talk *55f67916c20c4930de8655ea* in its
+The user has previously added the object *55f67916c20c4930de8655ea* in its
 program. Based on the clustering done previously we recommend to this
-attendee 2 other talks.
+user 2 other objects.
 
 The message *'Profile updated'* means that the profile has been updated.
 
@@ -80,16 +79,8 @@ the password. Only use a user with the *recommender* role!
 
 # TODO
 
-* add a client for ZeroMQ;
-* make it also work with cron.
-
-
-# License
-
-This code is using samples from the book
-[Programming Collective Intelligence](https://www.librarything.com/work/3151375)
-under MIT license.
+* add a client for ZeroMQ.
 
 # Contact
 
-[Luxembourg Institute of Science and Technology](http://www.list.lu).
+[Cédric Bonhomme](https://www.cedricbonhomme.org).

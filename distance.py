@@ -1,20 +1,11 @@
 #! /usr/bin/python
 #-*- coding:utf-8 -*
 
-# ***** BEGIN LICENSE BLOCK *****
-# This file is part of Adaptive Conference Companion.
-# Copyright (c) 2015 Luxembourg Institute of Science and Technology.
-# All rights reserved.
-#
-#
-#
-# ***** END LICENSE BLOCK *****
-
 __author__ = "Cedric Bonhomme"
 __version__ = "$Revision: 0.1 $"
 __date__ = "$Date: 2015/08/31$"
 __revision__ = "$Date: 2015/08/31 $"
-__copyright__ = "Copyright (c) Luxembourg Institute of Science and Technology"
+__copyright__ = ""
 __license__ = ""
 
 from math import sqrt
