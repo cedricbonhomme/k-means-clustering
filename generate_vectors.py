@@ -107,5 +107,5 @@ if __name__ == "__main__":
     try:
         service_url = sys.argv[3]
     except Exception as e:
-        service_url = "https://european-data-forum.list.lu/api/v1.0/talks.json"
+        service_url = ""
     generate_vectors(service_url, window_min, window_max)
