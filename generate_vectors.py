@@ -33,7 +33,7 @@ def remove_stopwords(words):
     """
     return [w for w in words if w not in STOP_WORDS]
 
-def get_word_counts(talk):
+def get_word_counts(talk)
     # Parse the feed
     wc = {}
     # Extract a list of words
@@ -54,6 +54,9 @@ def retrieve_data(url):
     return talks
 
 def generate_vectors(url, window_min, window_max):
+    """Generathe the vectors. In an other context the
+    'talks' can be for example articles or tags.
+    """
     talks = retrieve_data(url)
 
     apcount={}
